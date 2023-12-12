@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 10vh;
+            margin-top: 260px;
+            background-color: rgb(189, 189, 189);
+        }
+
+        #counter-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #counter {
+            font-size: 80px;
+          margin:80px;
+        }
+
+        button {
+          font-size: 50px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgb(143, 184, 218);
+            width: 80px; /* Set a fixed width for the buttons */
+            height: 80px; /* Set a fixed height for the buttons */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <audio id="incrementaudio">
+    <source src="achive-sound-132273.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+<audio id="decrementaudio">
+  <source src="green.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+  
+</audio>
+<div id="counter-container">
+    <button onclick="decrement()">-</button>
+    <div id="counter">1</div>
+    <button onclick="increment()">+</button>
+</div>
+
+<script>
+  
+ var audio1 = document.getElementById("incrementaudio");
+    var audio2 = document.getElementById("decrementaudio");
+    let counterValue =1;
+    const counterElement = document.getElementById('counter');
+
+    function updateCounter() {
+        counterElement.textContent = counterValue;
+    }
+
+    function increment() {
+        counterValue++;
+        updateCounter();
+        playSound1();
+    }
+
+    function decrement() {
+        counterValue--;
+        updateCounter();
+        playSound2();
+    }
+    function playSound1() {
+      audio1.currentTime =0;
+        audio1.play();
+    }
+    function playSound2(){
+      audio2.currentTime =0
+      audio2.play();
+    }
+    
+</script>
+
+</body>
+</html>
